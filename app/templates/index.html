@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Génome &amp; COVID — rapport personnel</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">🧬</span>
+    <div>
+      <h1>Génome &amp; COVID</h1>
+      <p class="subtitle">Vos facteurs génétiques de protection et de risque — d'après la science 2020 → 2026</p>
+    </div>
+  </div>
+  <div class="db-badge" id="db-badge">base : —</div>
+</header>
+
+<div class="warnstrip" role="note">
+  ⚠️ Outil <strong>éducatif</strong> — ni diagnostic, ni avis médical. Effets statistiques populationnels ;
+  la vaccination et les facteurs cliniques priment. Les GWAS sont majoritairement d'ascendance européenne.
+</div>
+
+<nav class="tabs" id="tabs">
+  <button data-tab="dashboard" class="active">Tableau de bord</button>
+  <button data-tab="report">Mon rapport</button>
+  <button data-tab="hla">Typage HLA (BAM/CRAM)</button>
+  <button data-tab="library">Bibliothèque scientifique</button>
+  <button data-tab="guide">Mode d'emploi</button>
+</nav>
+
+<main>
+
+  <!-- ======================= TABLEAU DE BORD ======================= -->
+  <section id="tab-dashboard" class="tab active">
+    <div class="hero">
+      <h2>Analysez votre génome face au COVID</h2>
+      <p>
+        Cette application lit vos fichiers <strong>VCF</strong> Nebula Genomics <em>localement</em>
+        (rien n'est envoyé sur Internet) et les confronte à une base de variants curée issue des
+        grandes études internationales : GenOMICC, COVID-19 Host Genetics Initiative, et les
+        publications les plus récentes (jusqu'à <em>Nature Genetics</em> 2026).
+      </p>
+    </div>
+
+    <div class="actions">
+      <div class="action-card" id="dropzone">
+        <div class="action-icon">📂</div>
+        <h3>Glissez vos fichiers VCF ici</h3>
+        <p>.vcf ou .vcf.gz — plusieurs fichiers acceptés (ex. un par chromosome Nebula)</p>
+        <label class="btn primary">Choisir des fichiers…
+          <input type="file" id="file-input" multiple accept=".vcf,.gz" hidden>
+        </label>
+      </div>
+      <div class="action-card">
+        <div class="action-icon">📁</div>
+        <h3>Analyser le dossier <code>data/</code></h3>
+        <p>Copiez vos VCF dans le dossier <code>data/</code> du projet, puis lancez l'analyse.</p>
+        <button class="btn" id="btn-folder">Analyser le dossier</button>
+      </div>
+      <div class="action-card">
+        <div class="action-icon">🧪</div>
+        <h3>Mode démo</h3>
+        <p>Explorez un rapport complet avec un génome simulé réaliste — sans fournir de fichier.</p>
+        <button class="btn" id="btn-demo">Lancer la démo</button>
+      </div>
+    </div>
+
+    <div id="analysis-status" class="status-line" hidden></div>
+
+    <div id="dashboard-summary" hidden>
+      <h3>Dernière analyse</h3>
+      <div class="kpis" id="kpis"></div>
+      <button class="btn primary" id="btn-goto-report">Voir le rapport complet →</button>
+    </div>
+
+    <div class="modules-overview">
+      <h3>Cinq modules scientifiques</h3>
+      <div class="module-cards" id="module-cards"></div>
+    </div>
+
+    <div class="tiers-overview">
+      <h3>Trois niveaux de preuve</h3>
+      <div class="tier-cards" id="tier-cards"></div>
+    </div>
+  </section>
+
+  <!-- ======================= MON RAPPORT ======================= -->
+  <section id="tab-report" class="tab">
+    <div id="report-empty" class="empty">
+      <p>Aucune analyse pour le moment.</p>
+      <p>Chargez vos fichiers VCF depuis le <a href="#" data-goto="dashboard">tableau de bord</a> ou lancez le mode démo.</p>
+    </div>
+
+    <div id="report-content" hidden>
+      <div class="report-meta" id="report-meta"></div>
+
+      <div class="summary-bar" id="summary-bar"></div>
+
+      <p style="margin:0 0 14px">
+        <button class="btn" id="btn-pdf-report">📄 Exporter le rapport complet en PDF</button>
+      </p>
+
+      <div class="filters">
+        <div class="chip-group" id="filter-module"></div>
+        <div class="chip-group" id="filter-status"></div>
+      </div>
+
+      <div class="cards" id="cards"></div>
+    </div>
+  </section>
+
+  <!-- ======================= TYPAGE HLA ======================= -->
+  <section id="tab-hla" class="tab">
+    <h2>Typage HLA depuis votre BAM ou CRAM</h2>
+    <p class="muted">
+      Les allèles HLA ne peuvent pas être lus de façon fiable dans un VCF standard : ils se
+      déduisent des lectures brutes d'un fichier d'alignement (<strong>BAM</strong> ou
+      <strong>CRAM</strong>). Cette application intègre <strong>arcasHLA</strong> (RabadanLab,
+      <em>Bioinformatics</em> 2019) directement dans le conteneur — aucun logiciel à installer.
+      Les références chr6 des deux builds sont embarquées pour le décodage des CRAM
+      (GRCh37/GRCh38 détecté automatiquement).
+    </p>
+
+    <div class="callout">
+      <strong>Comment faire :</strong>
+      <ol style="margin:6px 0 0;padding-left:22px">
+        <li>Copiez dans le dossier <code>data/</code> l'un de ces jeux de fichiers :
+            <ul style="margin:4px 0 0">
+              <li>votre <strong>.bam ou .cram</strong> Nebula — idéalement celui du
+                  <strong>chromosome 6 seul</strong> (bien plus léger) ;</li>
+              <li>ou vos deux <strong>FASTQ bruts</strong> (<code>xxx_1.fq.gz</code> +
+                  <code>xxx_2.fq.gz</code>) : typage <strong>T1K</strong> (conçu pour
+                  l'ADN WGS, <em>Genome Research</em> 2023) — rapide, aucune référence
+                  nécessaire, classes I et II. Recommandé si votre CRAM pose problème.</li>
+            </ul>
+            Si un CRAM s'avère illisible (référence d'alignement inconnue) et que vos
+            FASTQ sont présents, l'application <strong>bascule automatiquement</strong> dessus.
+            <br><em>Astuce :</em> déposez aussi l'index fourni (le <code>.crai</code> à côté
+            du <code>.cram</code>, ou le <code>.bai</code> à côté du <code>.bam</code>) :
+            l'étape d'indexation sera tout simplement sautée.</li>
+        <li>Cliquez sur « Lancer le typage HLA » ci-dessous, puis patientez — l'avancement
+            s'affiche ici même, et l'application reste utilisable pendant l'analyse.</li>
+        <li>Les résultats alimentent les cartes HLA de votre rapport : les deux têtes
+            d'affiche <strong>HLA-B*15:01</strong> (infections asymptomatiques) et
+            <strong>HLA-DQB1*06</strong> (réponse aux vaccins), plus un panel
+            d'allèles complémentaires issus de la littérature — C*04:01, DRB1*15:01
+            (risque), DRB1*04:01, DRB1*11, A*24:02, B*46:01 — chacun estampillé de son
+            niveau de preuve (émergent ou hypothèse).</li>
+      </ol>
+    </div>
+
+    <div class="source-picker">
+      <label>Source des données :</label>
+      <select id="hla-source">
+        <option value="auto" selected>Détection automatique (BAM/CRAM en priorité, FASTQ sinon)</option>
+        <option value="fastq">FASTQ — xxx_1.fq.gz + xxx_2.fq.gz (T1K rapide, minutes — recommandé)</option>
+        <option value="cram">CRAM — mon fichier .cram</option>
+        <option value="bam">BAM — mon fichier .bam</option>
+      </select>
+    </div>
+
+    <button class="btn primary" id="btn-hla">🧬 Lancer le typage HLA</button>
+    <button class="btn" id="btn-hla-fp">🔍 Identifier mon fichier (diagnostic)</button>
+    <button class="btn" id="btn-pdf-hla">📄 Exporter le rapport complet en PDF</button>
+    <div id="hla-fp" class="status-line" hidden style="margin-top:14px"></div>
+    <div id="hla-status" class="status-line" hidden style="margin-top:14px"></div>
+
+    <div id="hla-results" hidden>
+      <h3 style="margin-top:22px">Vos allèles HLA</h3>
+      <table class="hla-table" id="hla-table"></table>
+      <h3 style="margin-top:22px">Interprétation COVID</h3>
+      <div class="cards" id="hla-cards"></div>
+      <p class="muted" id="hla-disclaimer" style="margin-top:12px"></p>
+    </div>
+  </section>
+
+  <!-- ======================= BIBLIOTHÈQUE ======================= -->
+  <section id="tab-library" class="tab">
+    <h2>Bibliothèque scientifique</h2>
+    <p class="muted">Les études de référence, des débuts de la pandémie aux travaux les plus récents.</p>
+    <input type="search" id="library-search" placeholder="Rechercher (gène, auteur, journal, année…)">
+    <div class="studies" id="studies"></div>
+  </section>
+
+  <!-- ======================= MODE D'EMPLOI ======================= -->
+  <section id="tab-guide" class="tab">
+    <h2>Mode d'emploi</h2>
+
+    <h3>1. Vos fichiers Nebula</h3>
+    <p>
+      Sur votre compte Nebula Genomics, téléchargez le <strong>VCF</strong>
+      (complet ou par chromosome). Deux façons de l'analyser :
+    </p>
+    <ul>
+      <li><strong>Glisser-déposer</strong> les fichiers dans le tableau de bord ;</li>
+      <li>les copier dans le dossier <code>data/</code> du projet puis cliquer « Analyser le dossier ».</li>
+    </ul>
+    <p>
+      Formats acceptés : <code>.vcf</code> et <code>.vcf.gz</code>. Génome de référence
+      <strong>GRCh37 ou GRCh38</strong> — détecté automatiquement. La correspondance se fait
+      d'abord par <strong>rsID</strong>, puis par position.
+    </p>
+    <div class="callout">
+      <strong>Et le BAM ?</strong> Inutile ici : le VCF contient déjà les variants « appelés ».
+      Le BAM (lectures brutes) ne sert qu'à des analyses spécialisées — par exemple un typage
+      HLA précis (HLA-B*15:01…) avec des outils dédiés comme HLA-LA ou arcasHLA.
+    </div>
+
+    <h3>2. Lire le rapport</h3>
+    <ul>
+      <li><span class="dot protective"></span> <strong>Vert</strong> — facteur protecteur (porteur) ;</li>
+      <li><span class="dot risk"></span> <strong>Rouge</strong> — facteur de risque (porteur) ;</li>
+      <li><strong>Gris</strong> — non porteur, non couvert ou informatif.</li>
+    </ul>
+    <p>
+      Chaque carte indique le gène, le génotype, l'odds ratio (OR) issu des publications,
+      le niveau de preuve et les études sources. Les OR sont des moyennes populationnelles :
+      un OR de 1,2 signifie +20 % de risque <em>en moyenne dans la population étudiée</em>,
+      pas une prédiction individuelle.
+    </p>
+    <div class="callout">
+      <strong>« Non porteur (déduit) », c'est quoi ?</strong> Les VCF de Nebula ne listent que les
+      <em>positions variables</em> de votre génome. Si un variant étudié n'apparaît pas dans le fichier,
+      c'est que vous êtes homozygote de référence (0/0) : vous ne le portez pas. L'application vérifie
+      au préalable que la région est bien couverte par vos données avant de l'afficher comme
+      « non porteur » ; sinon elle affiche « non couvert ».
+    </div>
+
+    <h3>3. Limites importantes</h3>
+    <ul>
+      <li>Les grandes GWAS portent surtout sur des populations d'ascendance européenne : les fréquences et effets varient selon l'origine.</li>
+      <li>La plupart des variants pris individuellement ont un effet <strong>modeste</strong> ; le risque réel résulte de l'addition de nombreux facteurs génétiques et surtout non génétiques (âge, comorbidités, vaccination).</li>
+      <li>Les variants « émergents » ou « exploratoires » sont affichés pour la complétude scientifique, clairement étiquetés.</li>
+      <li>L'application ne fait pas de score de risque polygénique (non validé cliniquement).</li>
+    </ul>
+
+    <div class="callout red">
+      <strong>Avertissement médical</strong> — Cette application est un outil d'information
+      scientifique. Elle ne pose aucun diagnostic et ne remplace pas un avis médical.
+      Pour toute décision de santé, consultez un médecin ou un généticien.
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Génome &amp; COVID — application locale (Docker). Données 100 % locales, aucune transmission Internet.
+  Base scientifique : <span id="footer-updated">—</span>.
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

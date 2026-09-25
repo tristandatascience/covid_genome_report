@@ -1,0 +1,14 @@
+# Données personnelles et fichiers volumineux — NE JAMAIS pousser
+# (VCF/BAM/CRAM/FASTQ, résultats HLA : données génétiques personnelles)
+data/*
+!data/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+
+# Tests et artefacts
+_test/
+_collect/
+_pdf_check/
+*.log

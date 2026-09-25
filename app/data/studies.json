@@ -1,0 +1,385 @@
+{
+  "updated": "2026-09-22",
+  "studies": [
+    {
+      "key": "ellinghaus2020",
+      "authors": "Ellinghaus D. et al.",
+      "year": 2020,
+      "journal": "New England Journal of Medicine",
+      "title": "Genomewide Association Study of Severe Covid-19 with Respiratory Failure",
+      "summary_fr": "Première grande GWAS des formes graves (Italie/Espagne) : identifie le locus 3p21.31 (rs11385942) et le locus ABO. La pierre angulaire de toute la génétique de la sévérité COVID.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32558485/",
+      "modules": ["severite", "susceptibilite"]
+    },
+    {
+      "key": "zeberg2020",
+      "authors": "Zeberg H. & Pääbo S.",
+      "year": 2020,
+      "journal": "Nature",
+      "title": "The major genetic risk factor for severe COVID-19 is inherited from Neanderthals",
+      "summary_fr": "Montre que le principal facteur de risque génétique (3p21.31) est un segment d'ADN hérité des Néandertaliens, porté par ~16 % des Européens et ~50 % des Sud-Asiatiques. Il double le risque d'insuffisance respiratoire.",
+      "url": "https://www.nature.com/articles/s41586-020-2818-3",
+      "modules": ["severite"]
+    },
+    {
+      "key": "pairo2021",
+      "authors": "Pairo-Castineira E. et al. (GenOMICC)",
+      "year": 2020,
+      "journal": "Nature",
+      "title": "Genetic mechanisms of critical illness in COVID-19",
+      "summary_fr": "GWAS GenOMICC en réanimation (2 244 patients) : cinq loci dont 3p21.31, OAS1 (12q24), DPP9 (19p13.2), IFNAR2 (21q22). Confirmation chez les patients d'origine asiatique pour 3p21.31.",
+      "url": "https://www.nature.com/articles/s41586-020-03065-y",
+      "modules": ["severite"]
+    },
+    {
+      "key": "niemi2021",
+      "authors": "Niemi M.E.K. et al.",
+      "year": 2021,
+      "journal": "New England Journal of Medicine",
+      "title": "Mapping the human genetic architecture of COVID-19",
+      "summary_fr": "Analyse de 6 406 hospitalisations : l'haplotype protecteur du locus 12q24 porté par OAS1 réduit le risque de forme grave — l'allèle rs10774671-G produit l'isoforme p46 plus antivirale.",
+      "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2027671",
+      "modules": ["severite"]
+    },
+    {
+      "key": "zhou2021",
+      "authors": "Zhou S. et al.",
+      "year": 2021,
+      "journal": "Nature Medicine",
+      "title": "A Neanderthal OAS1 isoform protects individuals of European ancestry against COVID-19 susceptibility and severity",
+      "summary_fr": "L'isoforme p46 d'OAS1, héritée des Néandertaliens, protège contre l'infection, l'hospitalisation et les formes graves. Le miroir protecteur de l'haplotype à risque de 2020.",
+      "url": "https://www.nature.com/articles/s41591-021-01281-1",
+      "modules": ["severite"]
+    },
+    {
+      "key": "soveg2021",
+      "authors": "Soveg F.W. et al.",
+      "year": 2021,
+      "journal": "eLife",
+      "title": "Endomembrane targeting of human OAS1 p46 augments antiviral activity against viruses using endomembranes",
+      "summary_fr": "Démontre le mécanisme : l'isoforme p46 est prénylée, se fixe aux endosomes et détecte le SARS-CoV-2 dès son entrée, activant mieux la destruction de l'ARN viral (RNase L).",
+      "url": "https://elifesciences.org/articles/71447",
+      "modules": ["severite"]
+    },
+    {
+      "key": "jagoda2023",
+      "authors": "Jagoda N. et al.",
+      "year": 2023,
+      "journal": "eLife",
+      "title": "Regulatory dissection of the severe COVID-19 risk locus at 3p21.31",
+      "summary_fr": "Séquençage fin du locus 3p21.31 : l'haplotype néandertalien agit probablement via la régulation de LZTFL1 dans les cellules épithéliales des voies aériennes.",
+      "url": "https://elifesciences.org/articles/82311",
+      "modules": ["severite"]
+    },
+    {
+      "key": "vandermade2020",
+      "authors": "van der Made C.I. et al.",
+      "year": 2020,
+      "journal": "JAMA",
+      "title": "Presence of Genetic Variants Among Young Men With Severe COVID-19",
+      "summary_fr": "Deux paires de jeunes frères (21-32 ans) en réanimation : variants perte-de-fonction de TLR7 sur le chromosome X. Première démonstration d'un déficit immunitaire génétique expliquant des formes graves chez de jeunes hommes sains.",
+      "url": "https://jamanetwork.com/journals/jama/fullarticle/2767026",
+      "modules": ["severite"]
+    },
+    {
+      "key": "asano2021",
+      "authors": "Asano T. et al.",
+      "year": 2021,
+      "journal": "Science",
+      "title": "X-linked recessive TLR7 deficiency in ~1% of men under 60 years old with life-threatening COVID-19",
+      "summary_fr": "Sur 262 hommes en réanimation, 2 portaient des variants délétères de TLR7 — soit ~1 % des hommes < 60 ans avec formes graves. Déficit récessif lié à l'X dans l'interféron.",
+      "url": "https://www.science.org/doi/10.1126/science.abe4704",
+      "modules": ["severite"]
+    },
+    {
+      "key": "fallerini2021",
+      "authors": "Fallerini C. et al.",
+      "year": 2021,
+      "journal": "Genes & Immunity",
+      "title": "Association of Toll-like receptor 7 variants with life-threatening COVID-19 disease in males",
+      "summary_fr": "Les variants perte-de-fonction de TLR7 concernent jusqu'à ~2 % des jeunes hommes avec formes engageant le pronostic vital ; proposition d'un dépistage génétique ciblé.",
+      "url": "https://www.nature.com/articles/s41435-021-00145-1",
+      "modules": ["severite"]
+    },
+    {
+      "key": "boos2024",
+      "authors": "Boos J.M.A. et al.",
+      "year": 2024,
+      "journal": "American Journal of Human Genetics",
+      "title": "Stratified analyses refine association between rare TLR7 variants and severe COVID-19",
+      "summary_fr": "Méta-analyse : variants TLR7 rares délétères chez 2,4 % des cas < 60 ans sans facteur de risque clinique (vs 0,24 % des témoins, ~×5-10). Renforce l'intérêt du dépistage ciblé.",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0002929724001923",
+      "modules": ["severite"]
+    },
+    {
+      "key": "antoli2025",
+      "authors": "Antolí A. et al.",
+      "year": 2025,
+      "journal": "Frontiers in Immunology",
+      "title": "From Rare to Common: Genetic Insights into TLR7 Variants in COVID-19",
+      "summary_fr": "Cohorte multicentrique espagnole : confirme fonctionnellement la pathogénicité de plusieurs variants TLR7 ; relie TLR7 au lupus et à l'immunodéficience 74 liée à l'X.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Antoli+TLR7+COVID-19",
+      "modules": ["severite"]
+    },
+    {
+      "key": "hgi2021",
+      "authors": "COVID-19 Host Genetics Initiative",
+      "year": 2021,
+      "journal": "Nature",
+      "title": "Mapping the human genetic architecture of COVID-19",
+      "summary_fr": "Premier mapping mondial (49 562 cas) : 13 loci pour sévérité/hospitalisation/susceptibilité — dont 3p21.31, ABO et la région HLA. Lancement de l'effort international HGI.",
+      "url": "https://www.nature.com/articles/s41586-021-03767-x",
+      "modules": ["severite", "susceptibilite"]
+    },
+    {
+      "key": "kanai2023",
+      "authors": "Kanai M. et al. (COVID-19 HGI)",
+      "year": 2023,
+      "journal": "Nature",
+      "title": "A second update on mapping the human genetic architecture of COVID-19",
+      "summary_fr": "Deuxième mise à jour HGI : 51 loci significatifs (sévérité + susceptibilité), jusqu'à ~32 500 cas et 2 millions de témoins. Confirme ABO, 3p21.31, la région HLA et IFNAR2.",
+      "url": "https://www.nature.com/articles/s41586-023-06356-2",
+      "modules": ["severite", "susceptibilite"]
+    },
+    {
+      "key": "pairo2023",
+      "authors": "Pairo-Castineira E. et al. (GenOMICC + SCOURGE)",
+      "year": 2023,
+      "journal": "Nature",
+      "title": "GWAS and meta-analysis identifies 49 genetic variants underlying critical COVID-19",
+      "summary_fr": "24 202 formes critiques : 49 variants significatifs dont 16 nouveaux. La randomisation mendélienne désigne TYK2 et IL10RA/IL10RB comme cibles médicamenteuses ; OAS1 et IFNAR2 pour la défense antivirale, DPP9 et RAVER1 pour les lésions pulmonaires.",
+      "url": "https://www.nature.com/articles/s41586-023-06034-7",
+      "modules": ["severite"]
+    },
+    {
+      "key": "augusto2023",
+      "authors": "Augusto D.G. et al.",
+      "year": 2023,
+      "journal": "Nature",
+      "title": "A common allele of HLA is associated with asymptomatic SARS-CoV-2 infection",
+      "summary_fr": "29 947 personnes : les porteurs de HLA-B*15:01 sont > 2× plus susceptibles de rester totalement asymptomatiques (≈ 8× pour les homozygotes), grâce à des lymphocytes T mémoire forgés par les coronavirus des rhumes (OC43/HKU1) reconnaissant immédiatement le SARS-CoV-2.",
+      "url": "https://www.nature.com/articles/s41586-023-06331-x",
+      "modules": ["susceptibilite"]
+    },
+    {
+      "key": "rowntree2025",
+      "authors": "Rowntree L.C. et al.",
+      "year": 2025,
+      "journal": "PNAS",
+      "title": "HLA-B*15:01 and cross-reactive CD8 T-cells in COVID-19 severity",
+      "summary_fr": "Suivi du travail d'Augusto : les porteurs de HLA-B*15:01 ayant néanmoins fait une forme grave manquaient des lymphocytes T CD8 réactifs croisés — renforçant le rôle causal de cette immunité « prête à l'emploi ».",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Rowntree+HLA-B15%3A01+COVID-19",
+      "modules": ["susceptibilite"]
+    },
+    {
+      "key": "marchal2024",
+      "authors": "Marchal A. et al.",
+      "year": 2024,
+      "journal": "Frontiers in Immunology",
+      "title": "Lack of association between classical HLA genes and pre-Omicron asymptomatic SARS-CoV-2 infection",
+      "summary_fr": "Nuance importante : dans une cohorte non vaccinée pré-Omicron, cette équipe n'a pas répliqué l'association HLA-COVID asymptomatique. L'effet HLA-B*15:01 pourrait dépendre du contexte (époque, variante, statut vaccinal).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Marchal+HLA+asymptomatic+SARS-CoV-2",
+      "modules": ["susceptibilite"]
+    },
+    {
+      "key": "lindeboom2024",
+      "authors": "Lindeboom R.G.H. et al.",
+      "year": 2024,
+      "journal": "Nature",
+      "title": "Human SARS-CoV-2 challenge uncovers local and systemic immune dynamics and mucosal protection",
+      "summary_fr": "L'étude britannique d'infection contrôlée (volontaires sains) montre que des volontaires restés négatifs avaient, AVANT l'exposition, une expression élevée de HLA-DQA2 dans les cellules nasales et une réponse mucosale innée très rapide (cellules MAIT, monocytes non classiques) : le « bouclier nasal ». NB : c'est un trait d'expression génique, pas un variant de l'ADN — non lisible dans un VCF.",
+      "url": "https://www.nature.com/articles/s41586-024-07575-x",
+      "modules": ["susceptibilite"]
+    },
+    {
+      "key": "lammi2025",
+      "authors": "Lammi V. et al.",
+      "year": 2025,
+      "journal": "Nature Genetics",
+      "title": "Genome-wide association study of long COVID",
+      "summary_fr": "24 études, 16 pays, 6 450 cas de long COVID : premier locus significatif en amont de FOXP4 (rs9367106). FOXP4 est aussi un locus de sévérité aiguë — lien suggéré entre infection initiale sévère et long COVID.",
+      "url": "https://www.nature.com/articles/s41588-025-02442-x",
+      "modules": ["longcovid", "severite"]
+    },
+    {
+      "key": "verma2022",
+      "authors": "Verma A. et al.",
+      "year": 2022,
+      "journal": "Annals of the American Thoracic Society",
+      "title": "The MUC5B promoter polymorphism and COVID-19 severity (Million Veteran Program)",
+      "summary_fr": "Méta-analyse multi-ancestralité : l'allèle T de rs35705950 — grand facteur de risque de fibrose pulmonaire — est associé à ~10 % d'hospitalisations COVID en moins. Le paradoxe du mucus.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Verma+MUC5B+rs35705950+COVID-19+Million+Veteran",
+      "modules": ["severite"]
+    },
+    {
+      "key": "geller2026",
+      "authors": "Geller F. et al. (SSI Danemark, Estonian Biobank, FinnGen, MGB)",
+      "year": 2026,
+      "journal": "Nature Genetics",
+      "title": "Central role of glycosylation processes in human genetic susceptibility to SARS-CoV-2 infections with Omicron variants",
+      "summary_fr": "151 825 cas d'infection Omicron vs 556 568 témoins : 13 loci significatifs dont 8 totalement inédits. En vedette : ST6GAL1 (protecteur, aussi contre la grippe), les mucines MUC1/MUC5AC/MUC16, FUT2/FUT3/FUT6 (glycosylation), SLC6A20, et un effet protecteur du groupe sanguin B spécifique à Omicron. Le terrain génétique change avec le virus. (Version publiée : Nature Genetics, 2026.)",
+      "url": "https://www.medrxiv.org/content/10.1101/2024.11.21.24317689v1",
+      "modules": ["omicron", "susceptibilite"]
+    },
+    {
+      "key": "mentzer2023",
+      "authors": "Mentzer A.J. et al.",
+      "year": 2023,
+      "journal": "Nature Medicine",
+      "title": "Human leukocyte antigen alleles associate with COVID-19 vaccine immunogenicity",
+      "summary_fr": "Porteurs de HLA-DQB1*06 : réponse anticorps anti-spike ≈ 2× supérieure après première dose (ChAdOx1 et BNT162b2) et moins d'infections percées. Première grande étude génétique de la réponse vaccinale COVID.",
+      "url": "https://www.nature.com/articles/s41591-023-02481-y",
+      "modules": ["vaccins"]
+    },
+    {
+      "key": "loperamaya2020",
+      "authors": "Lopera Maya E.A. et al.",
+      "year": 2020,
+      "journal": "Frontiers in Genetics",
+      "title": "Lack of association between ACE2 and TMPRSS2 common variants and quantitative phenotypes",
+      "summary_fr": "L'analyse la plus rigoureuse des variants d'ACE2 et TMPRSS2 (1 273 variants communs et rares) : aucune association détectée. Contrepoint essentiel aux hypothèses médiatisées de 2020 sur les « serrures » du virus.",
+      "url": "https://www.frontiersin.org/articles/10.3389/fgene.2020.00793/full",
+      "modules": ["severite"]
+    },
+    {
+      "key": "weiner2021",
+      "authors": "Weiner J. et al.",
+      "year": 2021,
+      "journal": "eBioMedicine (Lancet)",
+      "title": "Increased risk of severe clinical course of COVID-19 in carriers of HLA-C*04:01",
+      "summary_fr": "Porteurs de HLA-C*04:01 avec ≈ 2× plus de risque d'intubation en cas de COVID. Mécanisme invoqué : moindre hétérozygotie HLA de classe I et interaction avec les cellules NK. Répliqué ensuite en Arménie (Hovhannisyan 2022) et ailleurs.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Weiner+HLA-C*04%3A01+COVID-19",
+      "modules": ["severite"]
+    },
+    {
+      "key": "langton2021",
+      "authors": "Langton D.J. et al.",
+      "year": 2021,
+      "journal": "HLA",
+      "title": "The influence of HLA genotype on the severity of COVID-19 infection",
+      "summary_fr": "Au Royaume-Uni, le locus DRB1 est associé au contraste formes graves vs soignants asymptomatiques : DRB1*04:01 est sous-représenté chez les graves (effet protecteur possible), avec interaction âge/sexe/IMC.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Langton+HLA+genotype+severity+COVID-19",
+      "modules": ["severite"]
+    },
+    {
+      "key": "migliorini2021",
+      "authors": "Migliorini F. et al.",
+      "year": 2021,
+      "journal": "Infection",
+      "title": "Association between HLA alleles and COVID-19 severity in Italian patients",
+      "summary_fr": "99 patients graves italiens : fréquences accrues de DRB1*15:01 et DQB1*06:02 — l'haplotype dit « de la sclérose en plaques ». Signal confirmé côté britannique par Astbury et al. (UKHSA, 2022) pour les issues sévères/fatales.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Migliorini+HLA+DRB1+COVID-19",
+      "modules": ["severite"]
+    },
+    {
+      "key": "shimizu2021",
+      "authors": "Shimizu K. et al. (RIKEN)",
+      "year": 2021,
+      "journal": "Nature Communications",
+      "title": "Identification of TCR repertoires in functionally competent SARS-CoV-2-specific T cells",
+      "summary_fr": "Épitopes spike immunodominants restreints par HLA-A24 (A*24:02), reconnus par les lymphocytes T CD8+ mémoire générés par les coronavirus saisonniers (OC43) : ~80 % des donneurs HLA-A24 non exposés montrent une réactivité. Base mécanistique du récit « japonais » — la protection en population reste une hypothèse.",
+      "url": "https://www.nature.com/articles/s41467-021-27408-x",
+      "modules": ["susceptibilite"]
+    },
+    {
+      "key": "nguyen2020",
+      "authors": "Nguyen A. et al.",
+      "year": 2020,
+      "journal": "Journal of Virology",
+      "title": "Human leukocyte antigen susceptibility map for SARS-CoV-2",
+      "summary_fr": "Analyse in silico de la liaison des peptides du SARS-CoV-2 à tous les allèles HLA : HLA-B*46:01 présente la plus faible capacité de présentation (héritage de son association au SARS de 2003), HLA-B*15:03 la plus forte. Prédictions de laboratoire numérique, à distinguer des preuves épidémiologiques.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Nguyen+HLA+susceptibility+map+SARS-CoV-2",
+      "modules": ["severite"]
+    },
+    {
+      "key": "letovsky2025",
+      "authors": "Letovsky S.I. et al.",
+      "year": 2025,
+      "journal": "Genes & Immunity",
+      "title": "Association between HLA genetics and SARS-CoV-2 infection in a large real-world cohort",
+      "summary_fr": "419 234 sujets (États-Unis) : 41 associations HLA-infection au départ, 8 seulement après ajustement — le statut socio-économique a l'effet le plus fort. La plupart des associations HLA publiées pourraient être des artefacts. L'étude de consensus à lire avant toute interprétation individuelle.",
+      "url": "https://www.nature.com/articles/s41435-025-00328-4",
+      "modules": ["susceptibilite"]
+    },
+    {
+      "key": "correale2025",
+      "authors": "Correale P., Baglio G., Parrella R. et al.",
+      "year": 2025,
+      "journal": "Journal of Translational Medicine",
+      "title": "A rapid ecologic analysis, confirmed by a case-control study, identifies class I HLA alleles correlated to the risk of COVID-19",
+      "summary_fr": "Italie : analyse écologique confirmée par cas-témoins — B*35 associé au risque de COVID (OR ajusté 2,97, p = 0,002) ; corrélations C*01/B*44 limitées à la 1re vague. PMI D 40065352.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40065352/",
+      "modules": ["susceptibilite"]
+    },
+    {
+      "key": "tanaka2024",
+      "authors": "Tanaka et al.",
+      "year": 2024,
+      "journal": "Cohorte japonaise",
+      "title": "HLA-DQA1*01:03 et pneumonie COVID-19 sévère",
+      "summary_fr": "DQA1*01:03 facteur de risque de pneumonie sévère (OR ≈ 2,6-4,6), en fort déséquilibre de liaison avec DQB1*06:01 — l'haplotype complet n'est pas nécessairement porté. PMID 39041300.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39041300/",
+      "modules": ["severite"]
+    },
+    {
+      "key": "ghasemi2022",
+      "authors": "Ghasemi Basir H.R. et al.",
+      "year": 2022,
+      "journal": "Frontiers in Immunology",
+      "title": "Susceptibility and severity of COVID-19 are both associated with lower overall viral-peptide binding repertoire of HLA class I",
+      "summary_fr": "Iran (142 cas / 143 témoins) : la couverture peptidique GLOBALE de la classe I est plus pertinente que les allèles pris isolément — cadre théorique du rôle de B*35 (mauvais présentateur).",
+      "url": "https://doi.org/10.3389/fimmu.2022.891816",
+      "modules": ["susceptibilite"]
+    },
+    {
+      "key": "pisanti2020",
+      "authors": "Pisanti S., Deelen J., Gallina A.M. et al.",
+      "year": 2020,
+      "journal": "Journal of Translational Medicine",
+      "title": "Correlation of the two most frequent HLA haplotypes in the Italian population to the differential regional incidence of Covid-19",
+      "summary_fr": "Italie : l'haplotype A*02:01-B*18:01-C*07:01-DRB1*11:04 corrèle négativement à l'incidence et à la mortalité régionales ; l'haplotype B*08-C*07 en sens inverse.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Pisanti+HLA+haplotypes+Covid-19",
+      "modules": ["susceptibilite"]
+    },
+    {
+      "key": "novelli2020",
+      "authors": "Novelli A., Andreani M., Biancolella M. et al.",
+      "year": 2020,
+      "journal": "HLA",
+      "title": "HLA allele frequencies and susceptibility to COVID-19 in a group of 99 Italian patients",
+      "summary_fr": "99 patients Italiens : fréquences accrues de DRB1*15:01 et DQB1*06:02 (résistant à la correction de Bonferroni) — première signalisation de l'haplotype « sclérose en plaques » dans la sévérité COVID.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32827207/",
+      "modules": ["severite"]
+    },
+    {
+      "key": "siemaszko2025",
+      "authors": "Siemaszko et al.",
+      "year": 2025,
+      "journal": "Pologne",
+      "title": "HLA-E et susceptibilité au SARS-CoV-2 (axe NKG2A/NK)",
+      "summary_fr": "Relie HLA-E à la susceptibilité à l'infection via la régulation NKG2A des cellules NK — signal sur l'infection, pas sur la sévérité. Preuve faible, non répliquée. PMC12564355.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12564355/",
+      "modules": ["susceptibilite"]
+    },
+    {
+      "key": "gutierrez2022",
+      "authors": "Gutiérrez-Bautista et al.",
+      "year": 2022,
+      "journal": "International Journal of Molecular Sciences",
+      "title": "MICA et COVID-19",
+      "summary_fr": "Le variant MICA*A9 associé à l'infection et aux formes symptomatiques, sans lien avec les formes sévères. La biologie MICA-NKG2D (immunité innée) est solide, l'association allélique reste faible.",
+      "url": "https://doi.org/10.3390/ijms23136979",
+      "modules": ["susceptibilite"]
+    },
+    {
+      "key": "bastard2020",
+      "authors": "Bastard P. et al.",
+      "year": 2020,
+      "journal": "Science",
+      "title": "Autoantibodies against type I IFNs in patients with life-threatening COVID-19",
+      "summary_fr": "Contexte (non génétique) important : ~10 % des formes graves chez les > 70 ans sont liées à des auto-anticorps bloquant les interférons de type I. Non détectable dans un VCF, mais indispensable pour comprendre la voie de l'interféron.",
+      "url": "https://www.science.org/doi/10.1126/science.abd4585",
+      "modules": ["severite"]
+    }
+  ]
+}

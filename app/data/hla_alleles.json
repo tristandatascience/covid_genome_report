@@ -1,0 +1,97 @@
+{
+  "updated": "2026-09-24",
+  "comment": "Panel d'allèles HLA interprétés vis-à-vis du COVID, affichés uniquement si portés. prefix : préfixe d'allèle (ex. 'C*04:01' ; une famille entière est possible, ex. 'DRB1*13' ou 'MICA'). tier : 2 = émergent, 3 = hypothèse. color : protective | risk | neutral. Les études citées dans 'text' doivent exister dans studies.json.",
+  "extras": [
+    {
+      "prefix": "C*04:01",
+      "color": "risk",
+      "tier": 2,
+      "title": "HLA-C*04:01 porteur — risque accru de forme grave",
+      "text": "Porteurs avec ≈ 2× plus de risque d'intubation en cas de COVID (Weiner et al., eBioMedicine/Lancet 2021 ; répliqué en Arménie et ailleurs). Mécanisme invoqué : moindre diversité HLA-C et interaction avec les cellules NK. Niveau « émergent » : une grande étude et des réplications, pas encore un consensus GWAS."
+    },
+    {
+      "prefix": "DRB1*04:01",
+      "color": "protective",
+      "tier": 2,
+      "title": "HLA-DRB1*04:01 porteur — possiblement protecteur (sévérité)",
+      "text": "Sous-représenté chez les patients graves par rapport aux soignants asymptomatiques au Royaume-Uni (Langton et al., HLA 2021) ; plusieurs études écologiques européennes vont dans le même sens. Niveau « émergent », effet modeste."
+    },
+    {
+      "prefix": "DRB1*11",
+      "color": "protective",
+      "tier": 3,
+      "title": "HLA-DRB1*11 porteur — possiblement protecteur (hypothèse)",
+      "text": "Association protectrice rapportée dans certaines cohortes européennes et analyses de gradient géographique, mais preuves mixtes et non répliquées à grande échelle. Niveau « hypothèse »."
+    },
+    {
+      "prefix": "DRB1*15:01",
+      "color": "risk",
+      "tier": 2,
+      "title": "HLA-DRB1*15:01 porteur — risque accru de forme sévère (signal)",
+      "text": "Sur-représenté chez les patients graves italiens (Novelli/Migliorini et al. 2020-2021 — avec DQB1*06:02 sur le même haplotype) et associé aux issues sévères/fatales au Royaume-Uni (Astbury et al. 2022). C'est aussi le principal allèle de risque de la sclérose en plaques : il prédispose à des réponses immunitaires déréglées. Nuance importante : si vous portez aussi DQB1*06, la carte « réponse vaccinale » reste valable — deux issues différentes, deux signaux opposés."
+    },
+    {
+      "prefix": "A*24:02",
+      "color": "protective",
+      "tier": 3,
+      "title": "HLA-A*24:02 porteur — immunité croisée possible (hypothèse)",
+      "text": "Épitopes spike immunodominants restreints par HLA-A24, reconnus par les lymphocytes T CD8+ mémoire forgés par les coronavirus des rhumes (≈ 80 % de réactivité chez les donneurs A24 non exposés — Shimizu et al., Nature Communications 2021, RIKEN). Mécanisme démontré en éprouvette ; la protection en population (récit de la faible mortalité japonaise) reste une HYPOTHÈSE. Niveau « hypothèse »."
+    },
+    {
+      "prefix": "B*46:01",
+      "color": "risk",
+      "tier": 3,
+      "title": "HLA-B*46:01 porteur — présentation virale déficiente (hypothèse)",
+      "text": "Déjà associé aux formes graves du SARS-CoV-1 en 2003 (Asie du Sud-Est) ; analyses in silico (Nguyen et al., J Virol 2020) : plus faible capacité de liaison aux peptides du SARS-CoV-2 parmi les allèles humains. Données in vivo COVID limitées. Niveau « hypothèse »."
+    },
+    {
+      "prefix": "B*35",
+      "color": "risk",
+      "tier": 2,
+      "title": "HLA-B*35 porteur (B*35:01/35:03) — signal de risque d'infection",
+      "text": "Plusieurs signaux convergents : cas-témoins italien OR ajusté 2,97 (p = 0,002 ; Correale et al. 2025), Émirats (Tay 2023, p = 0,005), Iran (Ghasemi 2022). Nuances : l'étude iranienne ne résiste pas à la correction pour tests multiples, aucune association avec la SÉVÉRITÉ n'est établie, et les données portent sur le groupe B*35 (1er champ), pas sur B*35:01 spécifiquement. Affinité de liaison aux peptides viraux plus faible (Ghasemi 2022). Hors COVID : B*35 est aussi l'association HLA classique des thyroïdites subaiguës. Niveau « émergent », OR non consolidé entre cohortes."
+    },
+    {
+      "prefix": "A*02:01",
+      "color": "neutral",
+      "tier": 3,
+      "title": "HLA-A*02:01 porteur — signaux discordants, plutôt neutres",
+      "text": "L'allèle de classe I le plus répandu au monde, très étudié : il présente des peptides immunogènes du SARS-CoV-2 aux lymphocytes T CD8+ (Szeto et al. 2021). Épidémiologie discordante mais plutôt favorable : en Italie, l'haplotype A*02:01-B*18:01-C*07:01-DRB1*11:04 corrèle négativement à l'incidence et à la mortalité (Pisanti et al. 2020) ; associé aux formes légères en Arabie saoudite (Hajeer 2024) ; mais signal inverse dans une cohorte africaine (Naidoo 2024) et prédiction in silico modeste (Nguyen 2020). Bilan : non concluant, aucune carte directionnelle. Niveau « hypothèse »."
+    },
+    {
+      "prefix": "DQA1*01:03",
+      "color": "risk",
+      "tier": 3,
+      "title": "HLA-DQA1*01:03 porteur — signal japonais de pneumonie sévère",
+      "text": "Une cohorte japonaise rapporte DQA1*01:03 comme facteur de risque de pneumonie COVID sévère (OR ≈ 2,6-4,6 ; Tanaka et al. 2024). Nuance importante : le signal porte sur l'haplotype DQA1*01:03-DQB1*06:01 — or vous portez DQB1*06:03/*05:01, pas *06:01. Une seule cohorte, une population spécifique : niveau « hypothèse »."
+    },
+    {
+      "prefix": "C*01",
+      "color": "neutral",
+      "tier": 3,
+      "title": "HLA-C*01 porteur — corrélation écologique (non individualisable)",
+      "text": "En Italie, la prévalence régionale de C*01 corrélait avec l'incidence COVID de la 1re vague (+19 % par point de prévalence ; Correale 2020/2025) et le in silico prédit C*01:02 comme mauvais présentateur (Nguyen 2020). MAIS corrélation écologique (populations, pas individus), disparue après la 1re vague : non transposable à votre risque personnel. Niveau « hypothèse »."
+    },
+    {
+      "prefix": "DRB1*13",
+      "color": "risk",
+      "tier": 3,
+      "title": "HLA-DRB1*13 porteur — signal contradictoire",
+      "text": "Une cohorte iranienne (290 hospitalisés) rapporte DRB1*13 comme indicateur de sévérité (Hakimi 2025), mais d'autres données le trouvent neutre ou protecteur, et le typage était en basse résolution (sans distinction du sous-type *13:01). Signal contradictoire : niveau « hypothèse »."
+    },
+    {
+      "prefix": "E*01",
+      "color": "neutral",
+      "tier": 3,
+      "title": "HLA-E — axe NKG2A/NK (Pologne)",
+      "text": "Une étude polonaise (Siemaszko 2025) relie HLA-E à la susceptibilité à l'infection via l'axe NKG2A/cellules NK — signal portant sur l'infection, pas la sévérité. Preuve faible, non répliquée : niveau « hypothèse »."
+    },
+    {
+      "prefix": "MICA",
+      "color": "neutral",
+      "tier": 3,
+      "title": "MICA — variant A9 et formes symptomatiques (indirect)",
+      "text": "Gutiérrez-Bautista et al. (2022) associent le variant MICA*A9 à l'infection et aux formes symptomatiques — sans lien avec les formes sévères. Vos allèles MICA (*012:01, *007:01) : le statut A9 exact exigerait un typage STR dédié. Preuve faible et indirecte : aucune conclusion individuelle. Niveau « hypothèse »."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+services:
+  web:
+    build: .
+    container_name: covid-genome-report
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/data
+    restart: "no"
