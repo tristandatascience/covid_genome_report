@@ -227,9 +227,16 @@ const MODULES_I18N = {
 const T = (k) => (I18N[state.lang] && I18N[state.lang][k]) || (I18N.fr[k] || k);
 const statusLabel = (code) => (STATUS_LABELS[state.lang] || STATUS_LABELS.fr)[code] || code;
 
+const FLAG_SVG = {
+  fr: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#ffffff"/><rect x="20" width="10" height="20" fill="#EF4135"/></svg>',
+  en: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20"><rect width="30" height="20" fill="#012169"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#ffffff" stroke-width="4"/><path d="M0,0 L30,20 M30,0 L0,20" stroke="#C8102E" stroke-width="2"/><path d="M15,0 V20 M0,10 H30" stroke="#ffffff" stroke-width="6"/><path d="M15,0 V20 M0,10 H30" stroke="#C8102E" stroke-width="3.5"/></svg>',
+};
+
 function applyLang() {
   document.documentElement.lang = state.lang;
   $("#lang-select").value = state.lang;
+  const flag = document.getElementById("lang-flag");
+  if (flag) flag.innerHTML = FLAG_SVG[state.lang] || FLAG_SVG.fr;
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const k = el.dataset.i18n;
     const v = T(k);
