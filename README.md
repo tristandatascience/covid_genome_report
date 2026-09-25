@@ -1,40 +1,43 @@
-# Génome & COVID — rapport personnel génétique
+# 🧬 Génome & COVID / Genome & COVID
 
-Application web locale (française) qui analyse vos fichiers Nebula Genomics
-(VCF, et BAM/CRAM/FASTQ pour le typage HLA) et affiche vos facteurs génétiques
-de **protection** ou de **risque** vis-à-vis du COVID, d'après l'état de la
-science (études 2020 → 2026, 38 publications de référence).
+**Français** | [English below](#-english)
 
-![modules](https://img.shields.io/badge/modules-5-blue) ![études](https://img.shields.io/badge/biblioth%C3%A8che-38_%C3%A9tudes-green)
+## Qu'est-ce que c'est ?
+
+Application web locale qui analyse vos fichiers de séquençage génomique
+personnels et affiche vos facteurs génétiques de **protection** ou de
+**risque** vis-à-vis du COVID, d'après l'état actuel de la science
+(38 publications de référence, 2020 → 2026).
+
+**Compatible avec tout fournisseur standard** : Nebula Genomics, Dante Labs,
+ou n'importe quel producteur de VCF/BAM/CRAM/FASTQ — l'application ne dépend
+que des formats, jamais de la marque.
 
 > ⚠️ **Avertissement** : outil éducatif — ni diagnostic, ni avis médical.
-> Les effets décrits sont des moyennes populationnelles (odds ratios) issues
-> d'études majoritairement d'ascendance européenne ; la vaccination et les
-> facteurs cliniques priment. Pour toute décision de santé, consultez un
-> médecin ou un généticien.
+> Les effets décrits sont des moyennes populationnelles ; la vaccination et
+> les facteurs cliniques priment. Consultez un médecin ou un généticien pour
+> toute décision de santé.
 
 ## Fonctionnalités
 
-- **Rapport VCF** — 26 entrées curées sur 5 modules : sévérité/réanimation
-  (haplotype 3p21.31, OAS1, TYK2, IFNAR2, DPP9…), groupe sanguin ABO déduit
-  du génome, ère Omicron (13 loci, Nature Genetics 2026), long COVID (FOXP4),
-  réponse vaccinale. Trois niveaux de preuve affichés (bien répliqué /
-  émergent / hypothèse). Positions vérifiées dans dbSNP ; interprétation des
-  positions absentes (« non porteur ») avec vérification de couverture.
+- **Rapport VCF** — 26 entrées curées sur 5 modules : sévérité (haplotype
+  3p21.31, OAS1, TYK2…), groupe sanguin ABO déduit du génome, ère Omicron
+  (13 loci, *Nature Genetics* 2026), long COVID (FOXP4), réponse vaccinale.
+  Trois niveaux de preuve affichés ; positions vérifiées dans dbSNP ;
+  interprétation « non porteur » avec vérification de couverture.
 - **Dépistage TLR7** (chromosome X) — classification commun / connu / novel
-  avec liste curée des polymorphismes (rs179008-rs179020), note d'hémizygotie
-  XY automatique.
+  avec note d'hémizygotie XY automatique.
 - **Typage HLA** depuis BAM/CRAM/FASTQ — moteurs **T1K** (rapide, ADN WGS,
   *Genome Research* 2023) et **arcasHLA** en repli ; références chr6 des deux
-  builds intégrées pour le décodage CRAM ; 12 cartes d'interprétation
-  (B*15:01, DQB1*06, C*04:01, DRB1*15:01, B*35…) avec niveaux de preuve et
-  carte « consensus » (Letovsky 2025, 419 234 sujets).
-- **Bibliothèque scientifique** — 38 études 2020-2026 avec résumés et liens.
-- **Export PDF** du rapport complet (généré côté serveur).
-- **Mode démo** — génome simulé pour explorer sans données.
-- 100 % local : aucune donnée ne quitte la machine.
+  builds intégrées ; 12 cartes d'interprétation avec niveaux de preuve.
+- **Bibliothèque scientifique** — 38 études avec résumés et liens.
+- **Interface française ou anglaise** (sélecteur en haut à droite).
+- **Export PDF** du rapport complet, **mode démo**, 100 % local.
 
-## Démarrage rapide
+## Installation
+
+Prérequis unique : **Docker** (Docker Desktop sur Windows/macOS, Docker
+Engine + Compose v2 sur Linux).
 
 ```bash
 git clone git@github.com:tristandatascience/covid_genome_report.git
@@ -43,48 +46,99 @@ docker compose up -d --build
 # → http://localhost:8080
 ```
 
-Prérequis unique : [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-(Windows/macOS) ou Docker Engine + Compose (Linux). Sur Windows, un
-`lancer.bat` est fourni (construction + démarrage + ouverture du navigateur).
+- **Windows** : double-cliquez sur `lancer.bat` (construction + démarrage +
+  ouverture du navigateur).
+- **Linux / macOS** : `bash lancer.sh`.
+- La première construction télécharge les dépendances (typage HLA, base
+  IMGT/HLA, références chr6) : comptez 20-50 minutes, une seule fois.
+- Arrêt : `docker compose down`.
 
 ## Vos données
 
-- **VCF** (`.vcf`/`.vcf.gz`, GRCh37 ou GRCh38 détecté automatiquement) :
-  glisser-déposer dans l'application, ou copie dans `data/`.
-- **BAM/CRAM** (typage HLA) : idéalement le chromosome 6 seul ; l'index
-  `.bai`/`.crai` fourni est utilisé s'il est présent.
-- **FASTQ** (`xxx_1.fq.gz` + `xxx_2.fq.gz`) : typage T1K rapide, aucune
-  référence requise — le chemin le plus universel.
+| Type | Usage | Notes |
+|---|---|---|
+| `.vcf` / `.vcf.gz` | Rapport génétique | GRCh37 ou GRCh38 (détection automatique), un ou plusieurs fichiers |
+| `.bam` / `.cram` | Typage HLA | idéalement chromosome 6 seul ; index `.bai`/`.crai` utilisé s'il est présent |
+| `xxx_1.fq.gz` + `xxx_2.fq.gz` | Typage HLA rapide (T1K) | le chemin le plus universel, aucune référence requise |
 
-Voir le `LISEZMOI.md` pour le guide complet (durées, dépannage, diagnostic
-de fichier, mise à jour de la base scientifique).
+Déposez-les par glisser-déposer dans l'interface, ou copiez-les dans `data/`.
+Guide complet et dépannage : voir `LISEZMOI.md`.
 
 ## Structure
 
 ```
-├── Dockerfile / docker-compose.yml / lancer.bat
+├── Dockerfile / docker-compose.yml / lancer.bat / lancer.sh
 ├── data/                      ← vos fichiers (ignorés par git)
 └── app/
-    ├── app.py                 serveur Flask (UI + API)
-    ├── vcf_parser.py          analyse VCF (rsID, position, imputation)
-    ├── hla_pipeline.py        typage HLA (T1K, arcasHLA, CRAM)
-    ├── pdf_report.py          export PDF (reportlab)
-    ├── templates/ static/     interface française
-    └── data/                  base scientifique (4 JSON éditables)
+    ├── app.py, vcf_parser.py, hla_pipeline.py, pdf_report.py
+    ├── templates/ static/     interface FR/EN
+    └── data/                  base scientifique — 4 JSON éditables sans coder
 ```
 
-La base scientifique vit dans quatre JSON déclaratifs (`variants.json`,
-`studies.json`, `hla_alleles.json`, `tlr7_polymorphisms.json`) : ajouter une
-étude ou un allèle ne demande **aucune modification de code** — puis
-`docker compose up -d --build`.
+---
 
-## Principes
+# 🧬 English
 
-Chaque affirmation affichée est adossée à une étude primaire vérifiable ;
-positions et fréquences contrôlées dans dbSNP ; niveaux de preuve honnêtes ;
-les allèles sans étude d'association réelle ne sont pas interprétés ; la
-carte « consensus » rappelle que le HLA ne prédit pas un risque individuel.
+## What is it?
+
+A local web application that analyses your personal whole-genome sequencing
+files and displays your genetic **protection** or **risk** factors with
+respect to COVID, according to the current state of science (38 reference
+publications, 2020 → 2026).
+
+**Works with any standard provider**: Nebula Genomics, Dante Labs, or any
+producer of standard VCF/BAM/CRAM/FASTQ — the application depends only on
+file formats, never on the vendor.
+
+> ⚠️ **Disclaimer**: educational tool — not a diagnosis, not medical advice.
+> Reported effects are population averages; vaccination and clinical factors
+> come first. Consult a physician or geneticist for any health decision.
+
+## Features
+
+- **VCF report** — 26 curated entries across 5 modules: severity (3p21.31
+  haplotype, OAS1, TYK2…), ABO blood group inferred from your genome, Omicron
+  era (13 loci, *Nature Genetics* 2026), long COVID (FOXP4), vaccine
+  response. Three evidence levels displayed; positions verified against
+  dbSNP; "non-carrier" inference with coverage check.
+- **TLR7 screening** (chromosome X) — common / known / novel classification
+  with automatic XY hemizygosity note.
+- **HLA typing** from BAM/CRAM/FASTQ — **T1K** engine (fast, WGS DNA,
+  *Genome Research* 2023) with **arcasHLA** fallback; chr6 references for
+  both builds embedded; 12 interpretation cards with evidence levels.
+- **Scientific library** — 38 studies with summaries and links.
+- **French or English interface** (selector, top right).
+- **PDF export** of the full report, **demo mode**, 100% local.
+
+## Installation
+
+Single requirement: **Docker** (Docker Desktop on Windows/macOS, Docker
+Engine + Compose v2 on Linux).
+
+```bash
+git clone git@github.com:tristandatascience/covid_genome_report.git
+cd covid_genome_report
+docker compose up -d --build
+# → http://localhost:8080
+```
+
+- **Windows**: double-click `lancer.bat`.
+- **Linux / macOS**: `bash lancer.sh`.
+- The first build downloads dependencies (HLA typing, IMGT/HLA database,
+  chr6 references): expect 20-50 minutes, once.
+- Stop with `docker compose down`.
+
+## Your data
+
+| Type | Use | Notes |
+|---|---|---|
+| `.vcf` / `.vcf.gz` | Genetic report | GRCh37 or GRCh38 (auto-detected), one or more files |
+| `.bam` / `.cram` | HLA typing | ideally chromosome 6 only; `.bai`/`.crai` index reused if present |
+| `xxx_1.fq.gz` + `xxx_2.fq.gz` | Fast HLA typing (T1K) | the most universal path, no reference needed |
+
+Drop them onto the interface, or copy them into `data/`.
+Full guide and troubleshooting (in French): see `LISEZMOI.md`.
 
 ## Licence
 
-Code fourni tel quel, à des fins éducatives et d'information scientifique.
+Code provided as-is for educational and scientific information purposes.

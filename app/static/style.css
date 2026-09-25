@@ -36,6 +36,13 @@ body {
   background: linear-gradient(120deg, #10395e, #14639e);
   color: #fff;
 }
+.topbar-right { display: flex; align-items: center; gap: 12px; }
+.topbar-right select {
+  background: rgba(255,255,255,.14); color: #fff;
+  border: 1px solid rgba(255,255,255,.25); border-radius: 999px;
+  padding: 4px 10px; font-size: 12.5px; cursor: pointer;
+}
+.topbar-right select option { color: #1c2733; }
 .brand { display: flex; align-items: center; gap: 14px; }
 .logo { font-size: 34px; }
 .topbar h1 { margin: 0; font-size: 22px; letter-spacing: .3px; }
